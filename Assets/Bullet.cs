@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 
 
     private GameObject enemyTrigger;
+    private GameObject playerTrigger;
     public float damage;
 
     void Update()
@@ -36,6 +37,14 @@ public class Bullet : MonoBehaviour
         if (hit.gameObject.tag == "Surface")
         {
             Destroy(this.gameObject);
+        }
+
+        if (hit.gameObject.tag == "Player" && Shooter.gameObject.tag != "Player")
+        {
+            playerTrigger = hit.gameObject;
+            playerTrigger.GetComponent<PlayerController>().playerHealth -= damage;
+            Destroy(this.gameObject);
+            Debug.Log("hit");
         }
     }
     

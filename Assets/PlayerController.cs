@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,6 +24,14 @@ public class PlayerController : MonoBehaviour
     public float rpm;
 
     public GameObject bullet;
+
+    public bool canShoot;
+
+    public float cd = 1;
+
+    public float shot;
+
+    public float playerHealth;
 
     void Update()
     {
@@ -50,15 +60,38 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, 7f * Time.deltaTime);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if(playerHealth <= 0)
+        {
+            Gameover();
+            Debug.Log(":(");
+        }
+
+        if (!canShoot)
+        {
+            shot -= Time.deltaTime;
+        }
+
+        if (shot <= 0)
+        {
+            canShoot = true;
+        }
+
+        if (Input.GetMouseButtonDown(0) && canShoot)
         {
             Shoot();
+            shot = cd;
+            canShoot = false;
+
         }
 
         void Shoot()
         {
             Instantiate(bullet.transform, weapon.transform.position, weapon.transform.rotation);
         }
+    }
+    public void Gameover()
+    {
+        Application.Quit();
     }
 
 
