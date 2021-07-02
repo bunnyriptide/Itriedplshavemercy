@@ -1293,7 +1293,6 @@ GameObject:
   - component: {fileID: 533175547}
   - component: {fileID: 533175546}
   - component: {fileID: 533175552}
-  - component: {fileID: 533175555}
   - component: {fileID: 533175554}
   - component: {fileID: 533175553}
   m_Layer: 0
@@ -1429,12 +1428,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 533175545}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5654c528788b96e4fbe05181ac2e80e4, type: 3}
+  m_Script: {fileID: 11500000, guid: c0e4850aaa99e384cb6965ff7ea43855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
-  rotSpeed: 10
-  agent: {fileID: 533175546}
+  player: {fileID: 942308525}
+  lastPlayerPos: {x: 0, y: 0, z: 0}
+  speed: 0.3
+  Display: {x: 0, y: 0, z: 0}
+  visao: 0
+  bulletSpawn: {fileID: 1266068245}
+  bullet: {fileID: 3317267072812796674, guid: 9cf2bf656ca521d4babbd3def1fa2b09, type: 3}
+  waypoint1: {fileID: 1406050354}
+  waypoint2: {fileID: 1980665304}
+  waypoint3: {fileID: 1582850765}
+  waypoint4: {fileID: 1767806552}
+  randomPosition1: {fileID: 1582850765}
+  randomPosition2: {fileID: 1406050354}
+  previousRandomPosition: {fileID: 1582850765}
+  previousPosition: {fileID: 1406050354}
+  rateOfFire: 1
+  recharge: 0
+  podeAtirar: 1
 --- !u!114 &533175553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1458,36 +1472,6 @@ MonoBehaviour:
     collapsedLines: 
     btScript: 
 --- !u!114 &533175554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 533175545}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab7d548244e50a4eae8c4dd6e478f90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 942308525}
-  lastPlayerPos: {x: 0, y: 0, z: 0}
-  speed: 0.2
-  Display: {x: 0, y: 0, z: 0}
-  visao: 1
-  bulletSpawn: {fileID: 1266068245}
-  bullet: {fileID: 3317267072812796674, guid: 9cf2bf656ca521d4babbd3def1fa2b09, type: 3}
-  waypoint1: {fileID: 1406050354}
-  waypoint2: {fileID: 1980665304}
-  waypoint3: {fileID: 1582850765}
-  waypoint4: {fileID: 1767806552}
-  randomPosition1: {fileID: 0}
-  randomPosition2: {fileID: 0}
-  previousRandomPosition: {fileID: 0}
-  previousPosition: {fileID: 0}
-  rateOfFire: 1
-  recharge: 1
-  podeAtirar: 1
---- !u!114 &533175555
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2308,11 +2292,11 @@ GameObject:
   - component: {fileID: 824457912}
   - component: {fileID: 824457911}
   - component: {fileID: 824457910}
+  - component: {fileID: 824457917}
   - component: {fileID: 824457909}
   - component: {fileID: 824457908}
-  - component: {fileID: 824457917}
   m_Layer: 0
-  m_Name: Enemy1 (1)
+  m_Name: Enemy2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2349,7 +2333,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 824457907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dab7d548244e50a4eae8c4dd6e478f90, type: 3}
+  m_Script: {fileID: 11500000, guid: c0e4850aaa99e384cb6965ff7ea43855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 942308525}
@@ -2359,14 +2343,14 @@ MonoBehaviour:
   visao: 0
   bulletSpawn: {fileID: 1046535824}
   bullet: {fileID: 3317267072812796674, guid: 9cf2bf656ca521d4babbd3def1fa2b09, type: 3}
-  waypoint1: {fileID: 1406050354}
-  waypoint2: {fileID: 1980665304}
-  waypoint3: {fileID: 1582850765}
-  waypoint4: {fileID: 1767806552}
+  waypoint1: {fileID: 0}
+  waypoint2: {fileID: 0}
+  waypoint3: {fileID: 0}
+  waypoint4: {fileID: 0}
   randomPosition1: {fileID: 0}
   randomPosition2: {fileID: 0}
   previousRandomPosition: {fileID: 0}
-  previousPosition: {fileID: 1406050354}
+  previousPosition: {fileID: 0}
   rateOfFire: 0.5
   recharge: 0
   podeAtirar: 1
@@ -3319,7 +3303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1046535824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.9449978, z: 3.73}
+  m_LocalPosition: {x: 0.2, y: 0.4, z: 3.9}
   m_LocalScale: {x: 1, y: 0.66831523, z: 1}
   m_Children:
   - {fileID: 51092390}
@@ -4509,8 +4493,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1582850765}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: 1.42, z: 7.48}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.19999886, y: 1.42, z: 7.4799995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4998,6 +4982,7 @@ GameObject:
   - component: {fileID: 1708599056}
   - component: {fileID: 1708599055}
   - component: {fileID: 1708599054}
+  - component: {fileID: 1708599058}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -5083,6 +5068,19 @@ Transform:
   m_Father: {fileID: 128302557}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708599058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708599053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e865652a727fa64f9fd742fa654bf3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 2
 --- !u!1 &1767806552
 GameObject:
   m_ObjectHideFlags: 0

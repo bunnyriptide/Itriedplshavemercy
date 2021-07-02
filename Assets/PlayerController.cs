@@ -3,13 +3,13 @@ using UnityEngine.AI;
 
 public class PlayerController : MonoBehaviour
 {
-    public CharacterController controller; 
+    public CharacterController controller;
 
     public float speed = 6f;
 
     public float turnSmoothTime = 0.1f;
 
-    float turnSmoothVelocity; 
+    float turnSmoothVelocity;
 
     private Camera cam;
 
@@ -54,13 +54,13 @@ public class PlayerController : MonoBehaviour
         {
             Shoot();
         }
-        
+
         void Shoot()
         {
             Instantiate(bullet.transform, weapon.transform.position, weapon.transform.rotation);
         }
     }
 
-   
+
 
 }
